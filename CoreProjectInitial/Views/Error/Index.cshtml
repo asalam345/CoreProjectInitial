@@ -1,0 +1,32 @@
+﻿@model Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="text-danger">
+        <h3>Error: @Model.Error.Message</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <p>@Model.Error.StackTrace</p>
+        <p>@Model.Error.InnerException</p>
+    </div>
+</div>
+
+
+
+@if (ViewBag.ErrorTitle == null)
+{
+    <h3>
+        An occured while processing your request.
+        The support team is notified and we are working on the fix
+    </h3>
+    <h5>Please contact us on pragim@pragimtech.com</h5>
+}
+else
+{
+    <h1 class="text-danger">@ViewBag.ErrorTitle</h1>
+    <h6 class="text-danger">@ViewBag.ErrorMessage</h6>
+}
